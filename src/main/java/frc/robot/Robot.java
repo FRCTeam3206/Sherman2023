@@ -61,6 +61,7 @@ public class Robot extends TimedRobot {
 
   // Sendable Chooser
   SendableChooser<String> autoChoices = new SendableChooser<>();
+  SendableChooser<String> driveChoices = new SendableChooser<>();
   String autoSelected;
 
   // Acceleration Limiting Variables
@@ -147,11 +148,16 @@ public class Robot extends TimedRobot {
     rightBackDrive.restoreFactoryDefaults();
     leftEncoder.setPosition(0);
     rightEncoder.setPosition(0);
+
     autoChoices.setDefaultOption("Shoot2", "Shoot2");
     autoChoices.addOption("Shoot2", "Shoot2");
     autoChoices.addOption("ShootFrontNoBack", "ShootFrontNoBack");
     autoChoices.addOption("ShootFrontBack", "ShootFrontBack");
     autoChoices.addOption("Shoot3", "Shoot3");
+
+    driveChoices.setDefaultOption("Arcade", "Arcade");
+    driveChoices.addOption("Tank", "Tank");
+    SmartDashboard.putData(driveChoices);
     SmartDashboard.putData(autoChoices);
     rightFrontDrive.setInverted(true);
     leftBackDrive.follow(leftFrontDrive);
@@ -217,8 +223,12 @@ public class Robot extends TimedRobot {
         }
 
         // chronosDrive.arcadeDrive(l, zRotation);
+        if(driveChoices.getSelected().equals("Tank")){
+          chronosDrive.tankDrive(leftStick.getY(), rightStick.getY());
+        }else{
         double forwardpower = forward.calculate(rightStick.getY());
-        chronosDrive.arcadeDrive(forwardpower, -rightStick.getZ());
+        chronosDrive.arcadeDrive(forwardpower, rightStick.getZ());
+        }
 
       }
     }
