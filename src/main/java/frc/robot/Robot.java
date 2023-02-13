@@ -7,20 +7,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.math.filter.SlewRateLimiter;
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.Solenoid;
 
-import java.lang.Math;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.Timer;
 
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
-import edu.wpi.first.wpilibj.PowerDistribution.ModuleType;
 import frc.robot.auton.*;
 import frc.robot.subsystems.*;
 import frc.robot.subsystems.shooter.Hood;
@@ -28,12 +21,9 @@ import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.shooter.ShooterSupersystem;
 
 import com.revrobotics.RelativeEncoder;
-import com.ctre.phoenix.motorcontrol.VictorSPXControlMode;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import static frc.robot.Constants.IDS.*;
-import static frc.robot.Constants.Limelight.*;
-import static frc.robot.Constants.Drive.*;
 import static frc.robot.Constants.Pneumatics.*;
 
 import edu.wpi.first.wpilibj.AnalogInput;
